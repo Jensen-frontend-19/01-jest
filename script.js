@@ -5,7 +5,7 @@ function add(x, y) {
 
 // ska räkna ut skillnaden mellan x och y, dvs x-y
 function subtract(x, y) {
-    return 1;
+    return x - y;
 }
 
 
