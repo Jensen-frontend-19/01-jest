@@ -17,8 +17,15 @@ it('should return the sum of two number', () => {
 })
 
 
-it('should return the difference between two numbers', () => {
+it('should return 1 for the difference between 13 and 12', () => {
     const x = 13, y = 12;
+    let expected = x - y;
+    let actual = subtract(x, y);
+    expect(actual).toBe(expected);
+})
+
+it('should return -283 for difference between 1337 - 1620', () => {
+    const x = 1337, y = 1620;
     let expected = x - y;
     let actual = subtract(x, y);
     expect(actual).toBe(expected);
