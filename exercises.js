@@ -20,6 +20,18 @@ function multiply(x, y) {
 }
 
 
+// exercise 5
+function isWaterBoiling(degreesCelsius) {
+    if( degreesCelsius < -237.5 ) {
+        throw new Error('Temperature cannot be below absolute zero');
+    } else if( degreesCelsius >= 100 ) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+
 module.exports = {
-    store, retrieve, capitalize, multiply
+    store, retrieve, capitalize, multiply, isWaterBoiling
 };

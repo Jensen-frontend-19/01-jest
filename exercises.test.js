@@ -1,4 +1,4 @@
-const { store, retrieve, capitalize, multiply } = require('./exercises.js')
+const { store, retrieve, capitalize, multiply, isWaterBoiling } = require('./exercises.js')
 
 // 2a
 // Vilka testfall har vi?
@@ -85,3 +85,38 @@ it('should return the value of 4*5', () => {
     //Assert
     expect(actual).toBe(expected)
 })
+
+
+// 5
+// Tre kategorier möjliga resultat: true, false, throw Error
+// degreesCelsius kan vara:
+// - number
+//   - från ca -10^308 till +10^308
+//   - Infinity eller NaN
+//   - lägsta möjliga temperaturen är -237.5
+// - någon annan datatyp
+
+// Det är viktigt att testa alla olika kategorier. Men inte alla möjliga värden.
+
+it('returns true for temperature >= 100', () => {
+    const temp = 100;
+    const expected = true;
+    let actual = isWaterBoiling(temp);
+    expect(actual).toBe(expected);
+})
+it('returns false for temperature < 100', () => {
+    const temp = 99.9;
+    const expected = false;
+    let actual = isWaterBoiling(temp);
+    expect(actual).toBe(expected);
+})
+it('throws an error for temperature < -237.5', () => {
+    const temp = -238;
+    let maybeError = () => isWaterBoiling(temp);
+    expect(maybeError).toThrow();
+    // toThrow runs the arrow function inside a try/catch block
+})
+// We can add more tests for "throw error" if we want more precision in our tests.
+// it('throws an error for NaN', () => {})
+// it('throws an error for Infinity', () => {})
+// it('throws an error for other data type', () => {})
