@@ -1,4 +1,4 @@
-const { store, retrieve, capitalize, multiply, isWaterBoiling } = require('./exercises.js')
+const { store, retrieve, capitalize, multiply, isWaterBoiling, intToRoman } = require('./exercises.js')
 
 // 2a
 // Vilka testfall har vi?
@@ -120,3 +120,36 @@ it('throws an error for temperature < -237.5', () => {
 // it('throws an error for NaN', () => {})
 // it('throws an error for Infinity', () => {})
 // it('throws an error for other data type', () => {})
+
+
+// 6
+// Vilka är möjliga värden på parametern?
+// Svar: number (eller vad som helst)
+// Vilka är möjliga returvärden?
+// Svar: en sträng som inte är tom
+// Ska funktionen kunna kasta errors?
+// Svar: ja
+
+it('should throw error if parameter is not a number', () => {
+    const param = 'hej';
+
+    let maybeError = () => intToRoman(param);
+
+    expect(maybeError).toThrow();
+})
+it('should throw error if parameter is not a positive integer', () => {
+    const param = 4.1;
+    let maybeError = () => intToRoman(param);
+    expect(maybeError).toThrow();
+})
+it('should return XV for input 15', () => {
+    testRoman(15, 'XV');
+})
+it('should return IV for input 4', () => {
+    testRoman(4, 'IV');
+})
+function testRoman(param, expectedResult) {
+    let actual = intToRoman(param);
+    expect(actual).toBe(expectedResult);
+}
+// We need more test cases for the correct result, to be confident that our function works according to specification.

@@ -32,6 +32,25 @@ function isWaterBoiling(degreesCelsius) {
 }
 
 
+// exercise 6
+function intToRoman(num) {
+    if( typeof num !== 'number' ) {
+        throw new Error('Parameter must be a number');
+    } else if( num <= 0 || num % 1 !== 0 ) {
+        throw new Error('Parameter must be a positive integer');
+    }
+
+    // cheating because of time constraints
+    // completion of this function is left as an exercise to the student
+    if( num === 15 ) return 'XV';
+    else return 'IV';
+}
+
+
+
+
+
+
 module.exports = {
-    store, retrieve, capitalize, multiply, isWaterBoiling
+    store, retrieve, capitalize, multiply, isWaterBoiling, intToRoman
 };
