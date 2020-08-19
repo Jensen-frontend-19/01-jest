@@ -1,5 +1,5 @@
 # 01-jest
-Simple test cases for functions using Jest.
+Simple test cases and exercises for functions using Jest.
 
 To run the test cases, type the following in your terminal of choice:
 
